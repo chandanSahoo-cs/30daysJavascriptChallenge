@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .bg-color-aqua{
+        background-color: #00ffff;
+    }
+    .bg-color-red{
+        background-color: #ff0000;
+    }
+    .border-color-1{
+        border: 2px solid;
+        border-color: #7fff00;
+    }
+    .border-color-2{
+        border: 2px solid;
+        border-color: #ff0000;
+    }
+</style>
+<body>
+    <div id="heading" class="color">Hi, I am Chandan</div>
+    <div id="heading3" class="bg-color-red">Hi, I am Supeman</div>
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <p id="changeMyContent">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum blanditiis ex beatae aliquam temporibus sapiente quos labore magnam quae corporis?</p>
+    <button id="changer1" class="border-color-1">Change Content</button>
+    <img src="https://www.imgcomfort.com/us/-/media/imgsite/category/relaxer/diecut/rg387_boss_t417_img0456.png?la=en&h=780&w=641&mw=790&hash=212CA95E80B4F8E232FE299F07B22C0D" alt="">
+</body>
+<script>
+    const heading = document.getElementById('heading')
+    heading.innerText="Hi ,I am Chandan Sahoo"
+    const color =document.getElementsByClassName('color')
+    color[0].style.backgroundColor = "green"
+
+    const newDiv = document.createElement('div')
+    newDiv.setAttribute('id','heading2')
+    // newDiv.setAttribute('class','.bg-color-red')
+    const node =document.createTextNode('I am superhero')
+    newDiv.appendChild(node)
+    document.body.appendChild(newDiv)
+    const newLi=document.createElement('li')
+    newLi.innerText="6"
+    document.querySelector('ul').appendChild(newLi)
+
+    document.getElementById('heading2').remove()
+    document.querySelector('ul').lastChild.remove()
+    document.querySelector('ul li:nth-child(5)').remove()
+
+    document.querySelector('img').setAttribute('src','https://www.imgcomfort.com/us/-/media/imgsite/category/new-button-relaxer/victor/rm295_victor_t410_img7394.png?la=en&h=500&w=390&mw=790&hash=DFEE441D3FCB5ABC62C213C7C271C63F')
+    document.getElementById('heading3').classList.remove('bg-color-red')
+    document.getElementById('heading3').classList.add('bg-color-aqua')
+    console.log(document.getElementById('heading3').classList)
+
+    document.getElementById('changer1').addEventListener('click',()=>{
+        const change=document.getElementById('changeMyContent')
+        if(change.innerText==="Hakuna Mattata") change.innerText="Hakuna Mipaka"
+        else change.innerText="Hakuna Mattata"
+    })
+    document.querySelector('button').addEventListener('mouseover',()=>{
+        const button= document.querySelector('button')
+        button.classList.remove('border-color-1')
+        button.classList.add('border-color-2')
+    })
+</script>
+</html>
