@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .visibility-1{
+        filter :blur(20px)
+    }
+</style>
+<body>
+    <p id="changeMyContent">Chandan is Superman</p>
+    <button id="changer">Click Me</button>
+    <img id="blurMe" class="visibility-1" src="https://www.imgcomfort.com/us/-/media/imgsite/category/nordic/diecut/nc21s_p311-901_img2460.png?la=en&h=666&w=600&mw=790&hash=DFF9147086F6C9C949F9C07B3A351A55" alt="">
+    
+    <div id="changeMyBG">
+        <p>Chandan is the actual batman</p>
+    </div>
+
+    <input id="textToConsole" type="text" placeholder="enter a value">
+
+    <form id="stopMe" action="..">
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name">
+        <br>
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email">
+        <br>
+        <button>Submit</button>
+        <br>
+        <select name="superhero" id="superhero" aria-placeholder="default">
+            <option value="select a superhero" selected disabled>select a superhero</option>
+            <option value="superman">superman</option>
+            <option value="batman">batman</option>
+            <option value="ironman">ironman</option>
+            <option value="thor">thor</option>
+            <option value="hawkeye">hawkeye</option>
+        </select>
+        <p id="showContent"></p>
+    </form>
+    <ul id="list">
+        <li>Superman</li>
+        <li>Batman</li>
+        <li>Thor</li>
+        <li>Hulk</li>
+        <li>Antman</li>
+    </ul>
+
+</body>
+<script>
+    const p= document.getElementById('changeMyContent');
+    const button =document.getElementById('changer')
+    button.addEventListener('click',()=>{
+        p.textContent="Chandan is Batman"
+    })
+    const img = document.getElementById('blurMe')
+    img.addEventListener('mouseenter',function(){
+        this.classList.remove('visibility-1')
+    })
+    img.addEventListener('mouseleave',function(){
+        this.classList.add('visibility-1')
+    })
+
+    const div= document.getElementById('changeMyBG')
+    div.addEventListener('mouseover',function(){
+        this.style.backgroundColor = 'red'
+    })
+    div.addEventListener('mouseout',function(){
+        this.style.backgroundColor = 'white'
+    })
+    
+
+    const input=document.getElementById('textToConsole')
+    input.addEventListener('keydown',(event)=>{
+        console.log(event.key)
+    })
+    input.addEventListener('keyup',(event)=>{
+        console.log(event.target.value)
+    })
+
+    const form = document.getElementById('stopMe')
+    form.addEventListener('submit',function(event){
+        event.preventDefault()
+        const name=document.getElementById('name')
+        const email=document.getElementById('email')
+        console.log(`Name: ${name.value} || Email: ${email.value}`)
+    })
+    const select=document.getElementById('superhero')
+    select.addEventListener('change',(event)=>{
+        const show= document.getElementById('showContent')
+        show.textContent=event.target.value
+    })
+
+    const list=document.getElementById('list')
+    list.addEventListener('click',(event)=>{
+        if(event.target.tagName=='LI'){
+            console.log(event.target.textContent)
+        }
+        // event.stopPropagation()
+    })
+    list.addEventListener('click',()=>{
+        const li =document.createElement('li')
+        li.textContent=Date.now()
+        list.appendChild(li)
+    })
+    list.addEventListener('mouseover',(event)=>{
+        event.target.style.backgroundColor="red"
+    })
+    list.addEventListener("mouseout",(event)=>{
+        event.target.style.backgroundColor="white"
+    })
+</script>
+</html>

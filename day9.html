@@ -67,8 +67,8 @@
     })
     document.querySelector('button').addEventListener('mouseover',()=>{
         const button= document.querySelector('button')
-        button.classList.remove('border-color-1')
-        button.classList.add('border-color-2')
+        button.classList.toggle('border-color-1')
+        button.classList.toggle('border-color-2')
     })
 </script>
 </html>
